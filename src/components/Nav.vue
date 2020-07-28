@@ -1,23 +1,24 @@
 <template>
   <nav>
-    <router-link to="/money" class="item" active-class="selected">
-      <Icon name="money" />记账
+    <router-link to="/Money" class="item" active-class="selected">
+      <Icon name="Money" />
+      记账
     </router-link>
     <router-link to="/labels" class="item" active-class="selected">
-      <Icon name="label" />标签
+      <Icon name="label" />
+      标签
     </router-link>
     <router-link to="/statistics" class="item" active-class="selected">
-      <Icon name="statistics" />统计
+      <Icon name="statistics" />
+      统计
     </router-link>
   </nav>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import x from "@/assets/Icons/label.svg";
-console.log(x);
-
-export default Vue.extend({ name: "Nav" });
+export default {
+  name: "Nav",
+};
 </script>
 
 <style lang="scss" scoped>
@@ -39,7 +40,7 @@ nav {
     }
   }
   > .item.selected {
-    color: red;
+    color: rgb(254, 219, 63);
   }
 }
 </style>
