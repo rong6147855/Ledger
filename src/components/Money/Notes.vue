@@ -9,8 +9,11 @@
 
 <script lang="ts">
 import Vue from "vue";
-
-export default Vue.extend({ name: "Notes" });
+import { Component } from "vue-property-decorator";
+@Component
+export default class Notes extends Vue {
+  value = "";
+}
 </script>
 
 <style lang="scss" scoped>
