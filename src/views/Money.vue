@@ -1,13 +1,13 @@
 <template>
   <Layout class-prefix="layout">
     <Types />
-    <Tags />
+    <Tags :data-source.sync="tags" />
     <Notes />
     <NumberPad />
   </Layout>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from "vue";
 import NumberPad from "@/components/Money/NumberPad.vue";
 import Types from "@/components/Money/Types.vue";
@@ -17,6 +17,11 @@ import Tags from "@/components/Money/Tags.vue";
 export default Vue.extend({
   name: "Money",
   components: { Tags, Notes, Types, NumberPad },
+  data() {
+    return {
+      tags: ["衣", "食", "住", "行", "彩票"],
+    };
+  },
 });
 </script>
 
