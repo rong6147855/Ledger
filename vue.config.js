@@ -1,6 +1,6 @@
 /* eslint-disable */
 const path = require("path");
-import path from "path";
+// import path from "path";
 
 // const { format } = require("path");
 // {
