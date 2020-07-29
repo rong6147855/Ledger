@@ -3,6 +3,7 @@
     <Types :value.sync="record.type" />
     <Notes @update:value="onUpdateNotes" />
     <Tags :data-source.sync="tags" @update:value="onUpdateTags" />
+
     <NumberPad :value.sync="record.amount" @submit="saveRecord" />
   </Layout>
 </template>
