@@ -1,6 +1,10 @@
 <template>
   <Layout>
-    <div>编辑标签</div>
+    <div>
+      <Icon name="left" />
+      <span>编辑标签</span>
+    </div>
+    <Notes field-name="标签名" placeholder="请输入标签名" />
     <!-- <div class="navBar">
       <Icon class="leftIcon" name="left" @click="goBack" />
       <span class="title">编辑标签</span>
@@ -24,6 +28,11 @@
 import Vue from "vue";
 import { Component } from "vue-property-decorator";
 import tagListModel from "../models/tagListModel";
+import Notes from "@/components/Money/Notes.vue";
+
+@Component({
+  components: { Notes },
+})
 // import FormItem from "@/components/Money/FormItem.vue";
 // import Button from "@/components/Button.vue";
 // import store from "@/store/index2";
