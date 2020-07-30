@@ -1,11 +1,11 @@
-import recordStore from '@/store/recordStore';
-import tagStore from '@/store/tagStore';
+// import recordStore from '@/store/recordStore';
+// import tagStore from '@/store/tagStore';
 
-const store = {
-  ...recordStore,
-  ...tagStore,
-};
+// const store = {
+//   ...recordStore,
+//   ...tagStore,
+// };
 
-console.log(store);
+// console.log(store);
 
-export default store;
+// export default store;

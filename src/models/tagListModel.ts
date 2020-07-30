@@ -1,4 +1,5 @@
 import createId from "@/lib/createId";
+
 const localStorageKeyName = "tagList";
 type Tag = {
   id: string;
@@ -7,7 +8,7 @@ type Tag = {
 type TagListModel = {
   data: Tag[];
   fetch: () => Tag[];
-  create: (name: string) => "success" | "duplicated";
+  create: (name: string) => "success" | "duplicated"; // 联合类型
   update: (id: string, name: string) => "success" | "not found" | "duplicated";
   remove: (id: string) => boolean;
   save: () => void;
@@ -20,8 +21,8 @@ const tagListModel: TagListModel = {
     );
     return this.data;
   },
-
-  create(name: string) {
+  create(name) {
+    // this.data = [{id:'1', name:'1'}, {id:'2', name:'2'}]
     const names = this.data.map((item) => item.name);
     if (names.indexOf(name) >= 0) {
       return "duplicated";
@@ -35,12 +36,11 @@ const tagListModel: TagListModel = {
     const idList = this.data.map((item) => item.id);
     if (idList.indexOf(id) >= 0) {
       const names = this.data.map((item) => item.name);
-      if (name.indexOf(name) >= 0) {
+      if (names.indexOf(name) >= 0) {
         return "duplicated";
       } else {
-        const tag = this.data.filter((item) => item.id == id)[0];
+        const tag = this.data.filter((item) => item.id === id)[0];
         tag.name = name;
-
         this.save();
         return "success";
       }
@@ -64,5 +64,4 @@ const tagListModel: TagListModel = {
     window.localStorage.setItem(localStorageKeyName, JSON.stringify(this.data));
   },
 };
-
 export default tagListModel;

@@ -1,6 +1,6 @@
 <template>
-  <div class="layout-wrapper" :class="clssPrefix && `${Prefix}-wrapper`">
-    <div class="content" :class="classPrefix && `${classPrefix}_content`">
+  <div class="layout-wrapper" :class="classPrefix && `${classPrefix}-wrapper`">
+    <div class="content" :class="classPrefix && `${classPrefix}-content`   ">
       <slot />
     </div>
     <Nav />
@@ -8,12 +8,10 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-
-export default Vue.extend({
+export default {
   props: ["classPrefix"],
   name: "Layout",
-});
+};
 </script>
 
 <style lang="scss" scoped>
