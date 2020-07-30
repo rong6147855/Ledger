@@ -23,20 +23,32 @@
 <script lang="ts">
 import Vue from "vue";
 import { Component } from "vue-property-decorator";
+import tagListModel from "../models/tagListModel";
 // import FormItem from "@/components/Money/FormItem.vue";
 // import Button from "@/components/Button.vue";
 // import store from "@/store/index2";
 // @Component({
 //   components: { Button, FormItem },
 // })
-export default class EditLabel extends Vue {}
-//   tag?: Tag = undefined;
-//   created() {
-//     this.tag = store.findTag(this.$route.params.id);
-//     if (!this.tag) {
-//       this.$router.replace("/404");
-//     }
-//   }
+export default class EditLabel extends Vue {
+  //   tag?: Tag = undefined;
+  created() {
+    const id = this.$route.params.id;
+    tagListModel.fetch();
+    const tags = tagListModel.data;
+    const tag = tags.filter((t) => t.id === id)[0];
+    if (tag) {
+      console.log(tag);
+    } else {
+      this.$router.replace("/404");
+    }
+  }
+  //     this.tag = store.findTag(this.$route.params.id);
+  //     if (!this.tag) {
+  //       this.$router.replace("/404");
+  //     }
+}
+
 //   update(name: string) {
 //     if (this.tag) {
 //       store.updateTag(this.tag.id, name);
