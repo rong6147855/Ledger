@@ -1,15 +1,15 @@
 <template>
   <Layout>
     <div class="navBar">
-      <Icon class="leftIcon" name="left" />
+      <Icon class="leftIcon" name="left" @click="goBack" />
       <span class="title">编辑标签</span>
       <span class="rightIcon"></span>
     </div>
     <div class="from-wrapper">
-      <Notes field-name="标签名" placeholder="请输入标签名" />
+      <Notes :value="tag.name" @update:value="update" field-name="标签名" placeholder="请输入标签名" />
     </div>
     <div class="button-wrapper">
-      <Button>删除标签</Button>
+      <Button @click="remove">删除标签</Button>
     </div>
 
     <!-- <div class="navBar">
@@ -37,6 +37,7 @@ import { Component } from "vue-property-decorator";
 import tagListModel from "../models/tagListModel";
 import Notes from "@/components/Money/Notes.vue";
 import Button from "@/components/Button.vue";
+import tag from "@/components/Money/Tags.vue";
 @Component({
   components: { Button, Notes },
 })
@@ -48,22 +49,40 @@ import Button from "@/components/Button.vue";
 // })
 export default class EditLabel extends Vue {
   //   tag?: Tag = undefined;
+  tag?: { id: string; name: string } = undefined;
   created() {
     const id = this.$route.params.id;
     tagListModel.fetch();
     const tags = tagListModel.data;
     const tag = tags.filter((t) => t.id === id)[0];
     if (tag) {
-      console.log(tag);
+      this.tag = tag;
+      // console.log(tag);
     } else {
       this.$router.replace("/404");
     }
   }
-  //     this.tag = store.findTag(this.$route.params.id);
-  //     if (!this.tag) {
-  //       this.$router.replace("/404");
-  //     }
+  update(name: string) {
+    if (this.tag) {
+      tagListModel.update(this.tag.id, name);
+    }
+  }
+
+  remove() {
+    if (this.tag) {
+      tagListModel.remove(this.tag.id);
+    }
+  }
+  goBack() {
+    console.log("back");
+    this.$router.back();
+  }
 }
+
+//     this.tag = store.findTag(this.$route.params.id);
+//     if (!this.tag) {
+//       this.$router.replace("/404");
+//     }
 
 //   update(name: string) {
 //     if (this.tag) {
