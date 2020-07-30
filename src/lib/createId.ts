@@ -4,7 +4,7 @@ function createId() {
   id++;
   return id;
 
-  window.localStorage.setItem("_inMax", id.toString());
-  return id;
+  // window.localStorage.setItem("_inMax", id.toString());
+  // return id;
 }
 export default createId;

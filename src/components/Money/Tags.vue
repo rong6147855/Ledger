@@ -7,9 +7,9 @@
       <li
         v-for="tag in dataSource"
         :key="tag.id"
-        :class="{ selected: selectedTags.indexOf(tag) >= 0 }"
+        :class="{selected: selectedTags.indexOf(tag)>=0}"
         @click="toggle(tag)"
-      >{{ tag.name }}</li>
+      >{{tag.name}}</li>
     </ul>
   </div>
 </template>
@@ -32,6 +32,7 @@ export default class Tags extends Vue {
   }
   create() {
     const name = window.prompt("请输入标签名");
+
     if (name === "") {
       window.alert("标签名不能为空");
     } else if (this.dataSource) {

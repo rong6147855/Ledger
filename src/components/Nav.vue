@@ -1,16 +1,13 @@
 <template>
   <nav>
     <router-link to="/labels" class="item" active-class="selected">
-      <Icon name="label" />
-      标签
+      <Icon name="label" />标签
     </router-link>
     <router-link to="/Money" class="item" active-class="selected">
-      <Icon name="Money" />
-      记账
+      <Icon name="Money" />记账
     </router-link>
     <router-link to="/statistics" class="item" active-class="selected">
-      <Icon name="statistics" />
-      统计
+      <Icon name="statistics" />统计
     </router-link>
   </nav>
 </template>
@@ -28,6 +25,7 @@ nav {
   display: flex;
   flex-direction: row;
   font-size: 12px;
+
   > .item {
     color: $color-highlight;
     padding: 2px 0;

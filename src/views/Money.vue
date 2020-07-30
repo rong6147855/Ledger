@@ -25,6 +25,7 @@ const tagList = tagListModel.fetch();
 // const RecordItemItemList: RecordItemItem[] = JSON.parse(
 //   window.localStorage.getItem("RecordItemItemList") || "[]"
 // );
+
 @Component({
   components: { Tags, Notes, Types, NumberPad },
 })

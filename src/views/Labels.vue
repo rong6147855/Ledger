@@ -22,7 +22,9 @@ import Button from '@/components/Button.vue'
 tagListModel.fetch();
 // console.log(tags);
 
-@Component
+@Component({
+  components:{ Button}
+})
 export default class Labels extends Vue {
   tags = tagListModel.data;
   createTag() {
