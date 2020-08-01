@@ -1,13 +1,18 @@
 <template>
   <Layout>
-    <Types class-prefix="zzz" :value.sync="yyy" />
+    <Tabs class-prefix="type" :data-source="typeList" :value.sync="type" />
+    <Tabs class-prefix="interval" :data-source="intervalList" :value.sync="interval" />
+    <div>
+      type: {{type}}
+      <br />
+      interval: {{interval}}
+    </div>
   </Layout>
 </template>
 
 <style scoped lang="scss">
-::v-deep .zzz-item {
+::v-deep .type-tabs-item {
   background: white;
-  border: 1px solid red;
   &.selected {
     background: rgb(254, 219, 63);
     &::after {
@@ -20,10 +25,22 @@
 <script lang="ts">
 import Types from "@/components/Money/Types.vue";
 import Vue from "vue";
-// import Component from 'vue-class-component';
 import { Component } from "vue-property-decorator";
-@Component({ components: { Types } })
+import Tabs from "@/components/Tabs.vue";
+@Component({
+  components: { Tabs, Types },
+})
 export default class Statistics extends Vue {
-  yyy = "-";
+  type = "-";
+  interval = "day";
+  intervalList = [
+    { text: "按天", value: "day" },
+    { text: "按周", value: "week" },
+    { text: "按月", value: "month" },
+  ];
+  typeList = [
+    { text: "支出", value: "-" },
+    { text: "收入", value: "+" },
+  ];
 }
 </script>
