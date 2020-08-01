@@ -38,7 +38,7 @@ import { Component } from "vue-property-decorator";
 import Notes from "@/components/Money/Notes.vue";
 import Button from "@/components/Button.vue";
 import tag from "@/components/Money/Tags.vue";
-import store from "../store/index2";
+
 @Component({
   components: { Button, Notes },
 })
@@ -53,24 +53,26 @@ export default class EditLabel extends Vue {
   tag?: Tag = undefined;
 
   created() {
-    this.tag = store.findTag(this.$route.params.id);
+    //this.tag = {};
+    // store.findTag(this.$route.params.id);
     if (!this.tag) {
       this.$router.replace("/404");
     }
   }
   update(name: string) {
     if (this.tag) {
-      store.updateTag(this.tag.id, name);
+      // store.updateTag(this.tag.id, name);
     }
   }
 
   remove() {
     if (this.tag) {
-      if (store.removeTag(this.tag.id)) {
-        this.$router.back();
-      } else {
-        window.alert("删除失败");
-      }
+      return;
+      // if (store.removeTag(this.tag.id)) {
+      //   this.$router.back();
+      // } else {
+      //   window.alert("删除失败");
+      // }
     }
   }
   goBack() {
