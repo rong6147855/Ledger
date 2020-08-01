@@ -20,6 +20,9 @@ export default class Tabs extends Vue {
   @Prop(String)
   readonly value!: string;
   @Prop(String)
+  @Prop({ type: String, default: "64px" })
+  height!: string;
+
   classPrefix?: string;
   liClass(item: DataSourceItem) {
     return {
