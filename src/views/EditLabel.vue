@@ -83,7 +83,7 @@ export default class EditLabel extends Vue {
 
 <style lang="scss" scoped>
 .navBar {
-  background: rgb(254, 219, 63);
+  background: rgb(254, 219, 224);
   text-align: center;
   font-size: 24px;
   padding: 12px 16px;
