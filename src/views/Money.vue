@@ -3,7 +3,7 @@
     <Types :value.sync="record.type" />
     <Tags @update:value="record.tags=$event" />
     <div class="notes">
-      <Notes field-name="备注" placeholder="在这里输入备注" @update:value="onUpdateNotes" />
+      <Notes field-name="备注" placeholder="在这里输入备注" :value.sync="record.notes" />
     </div>
     <NumberPad :value.sync="record.amount" @submit="saveRecord" />
   </Layout>
@@ -44,11 +44,12 @@ export default class Money extends Vue {
   }
   saveRecord() {
     if (!this.record.tags || this.record.tags.length === 0) {
-      window.alert("请至少选择一个标签");
+      return window.alert("请至少选择一个标签");
     }
     this.$store.commit("createRecord", this.record);
     if (this.$store.state.createRecordError === null) {
       window.alert("已保存");
+      this.record.notes = "";
     }
   }
 }
