@@ -130,10 +130,15 @@ export default class Statistics extends Vue {
 }
 .title {
   @extend %item;
+  background: rgb(244, 244, 244);
 }
 .record {
+  min-height: 44px;
+  border-bottom: 1px solid #e6e6e6;
+  margin-left: 10px;
   background: white;
   @extend %item;
+  // border-bottom: 1px solid #e6e6e6;
 }
 .notes {
   margin-right: auto;
